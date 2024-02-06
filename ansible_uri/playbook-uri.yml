@@ -1,0 +1,10 @@
+---
+- name: Redfish playbook for uri
+  hosts: silly_mestorf
+  gather_facts: yes
+
+  tasks: 
+    - name: Gatherfats for mockup server
+      debug:
+        var: gather_facts
+
