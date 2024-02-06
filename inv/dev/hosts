@@ -31,3 +31,6 @@ ansible_network_os=eos
 
 [docker]
 silly_mestorf
+
+[redfish]
+Redfish     baseuri=aux1-75448987-3f8b-4fe0-96a0-2893e53b31fb.live.alta3.com    username=root password=null
