@@ -1,0 +1,24 @@
+---
+- name: File creation and permission 
+  hosts: localhost
+  gather_facts: true
+
+  tasks:
+
+    - name: File creation 
+      file:
+        path: /home/student/new_file
+        state: touch
+    -
+
+    - name: create file and copy the content
+      copy:
+        content: 
+          surya kumar is smart
+        dest: /home/student/file_content
+
+    - name: Append the line at the end of the file
+      lineinfile:
+        path: "/home/student/file_content"
+        line: *** #######This is end of the line #######***
+
