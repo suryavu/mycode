@@ -1,0 +1,30 @@
+- name: Manage device power state
+  redfish_powerstate:
+      baseuri:               # (required) IP address of the target out-of-band controller. For example- <ipaddress>:<port>.
+      ca_path:               # The Privacy Enhanced Mail (PEM) file that contains a CA certificate to be used for the validation.
+      password:              # (required) Password of the target out-of-band controller. If the password is not provided, then the
+                             # environment variable `IDRAC_PASSWORD' is used. Example: export
+                             # IDRAC_PASSWORD=password
+      reset_type:            # (required) This option resets the device. If `ForceOff', Turns off the device immediately. If `ForceOn',
+                             # Turns on the device immediately. If `ForceRestart', Turns off the device
+                             # immediately, and then restarts the device. If `GracefulRestart', Performs
+                             # graceful shutdown of the device, and then restarts the device. If
+                             # `GracefulShutdown', Performs a graceful shutdown of the device, and the turns
+                             # off the device. If `Nmi', Sends a diagnostic interrupt to the device. This is
+                             # usually a non-maskable interrupt (NMI) on x86 device. If `On', Turns on the
+                             # device. If `PowerCycle', Performs power cycle on the device. If
+                             # `PushPowerButton', Simulates the pressing of a physical power button on the
+                             # device. When a power control operation is performed, which is not supported on
+                             # the device, an error message is displayed with the list of operations that can
+                             # be performed.
+      resource_id:           # The unique identifier of the device being managed. For example-
+                             # https://<`baseuri'>/redfish/v1/Systems/<`resource_id'>. This option is
+                             # mandatory for `base_uri' with multiple devices. To get the device details, use
+                             # the API https://<`baseuri'>/redfish/v1/Systems.
+      timeout:               # The socket level timeout in seconds.
+      username:              # (required) Username of the target out-of-band controller. If the username is not provided, then the
+                             # environment variable `IDRAC_USERNAME' is used. Example: export
+                             # IDRAC_USERNAME=username
+      validate_certs:        # If `false', the SSL certificates will not be validated. Configure `false' only on personally controlled sites
+                             # where self-signed certificates are used. Prior to collection version `5.0.0',
+                             # the `validate_certs' is `false' by default.
