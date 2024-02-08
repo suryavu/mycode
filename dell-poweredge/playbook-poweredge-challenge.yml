@@ -1,0 +1,44 @@
+---
+- name: PowerEdge Challenge
+  hosts: localhost
+  connection: local
+  gather_facts: True
+
+  collections:
+    - dellemc.openmanage
+
+  vars:
+    idrac_ip: 10.0.0.89            # the idrac to connect to
+    idrac_user: root                   # the login user that will perform the operation
+    idrac_password: r0gerwilc0         # the 0 characters are zeros
+
+
+  tasks:
+
+  # Start your first task here
+   - name: Your first task should go here
+     command: uptime
+     register: facts
+  
+   - name: Print gather_facts information
+     debug:
+       var: facts.stdout
+
+ 
+
+      
+
+  # unsure how to get started?
+  # Hints:
+  # - Adapt a solution from https://github.com/dell/redfish-ansible-module
+  # - Curious in writing your own solution? Most playbooks begin by gathering_facts. Look at previous labs
+  #   and figure out how to gather_facts (info) via the iDRAC on the PowerEdge
+  # - After you gather_facts, try registering the results, then debugging those results
+  # - Try building a precheck to "assert" the facts being returned are correct
+  # - Look for a module that you'd like to explore (i.e. add a user)
+  # - Want to challenge yourself? Write a playbook that tries to do a "postcheck"
+  #   it is the same concept as a "precheck". Just gather_facts again at the *end* of the playbook
+  #   and assert your changes were applied
+  # - Need another challenge? Write a playbook that "undoes" whatever "change" your previous playbook made
+
+
